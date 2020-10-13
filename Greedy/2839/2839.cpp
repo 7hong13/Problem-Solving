@@ -16,8 +16,8 @@ int main() {
         int savedN = n;
         int quotient = 0;
         while (savedN > 0) {
-            if ((n- quotient * 5) % 3 == 0) {
-                answer = quotient + (n- quotient * 5) / 3;
+            if ((n - quotient * 5) % 3 == 0) {
+                answer = quotient + (n - quotient * 5) / 3;
             }
             savedN -= 5;
             quotient++; 
