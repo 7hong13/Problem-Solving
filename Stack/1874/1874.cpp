@@ -4,12 +4,7 @@
 using namespace std;
 stack<int> st;
 queue<char> q;
-
-int main() {
-    cin.tie(nullptr);
-    ios_base::sync_with_stdio(0);
-    int n;
-    cin >> n;
+bool isStackSeqeunce(int n) {
     int num = 1;
     st.push(num++);
     q.push('+');
@@ -31,6 +26,15 @@ int main() {
         st.pop();
         q.push('-');
     }
+    return isImpossible;
+}
+
+int main() {
+    cin.tie(nullptr);
+    ios_base::sync_with_stdio(0);
+    int n;
+    cin >> n;
+    bool isImpossible = isStackSeqeunce(n);
     if (isImpossible) {
         cout << "NO\n";
     }
