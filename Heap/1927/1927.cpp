@@ -2,6 +2,22 @@
 #include <queue>
 using namespace std;
 priority_queue<int, vector<int>, greater<int>> pq;
+void minHeap(int x) {
+    if (!x) {
+        int result;
+        if (pq.empty()) {
+            result = 0;
+        }
+        else {
+            result = pq.top();
+            pq.pop();
+        }
+        cout << result << "\n";
+    }
+    else {
+        pq.push(x);
+    }
+}
 
 int main() {
     cin.tie(nullptr);
@@ -11,20 +27,7 @@ int main() {
     while (n--) {
         int x;
         cin >> x;
-        if (!x) {
-            int result;
-            if (pq.empty()) {
-                result = 0;
-            }
-            else {
-                result = pq.top();
-                pq.pop();
-            }
-            cout << result << "\n";
-        }
-        else {
-            pq.push(x);
-        }
+        minHeap(x);
     }
     return 0;
 }
