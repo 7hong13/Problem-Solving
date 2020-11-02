@@ -4,6 +4,20 @@
 using namespace std;
 typedef pair<int, int> pii;
 priority_queue<pii, vector<pii>, greater<pii>> pq;
+void minHeap(int x) {
+    if (!x) {
+        if (pq.empty()){
+            cout << "0\n";
+        }
+        else {
+            cout << pq.top().second << "\n";
+            pq.pop();
+        }
+    }
+    else {
+        pq.push(pii(abs(x), x));
+    }
+}
 
 int main() {
     cin.tie(nullptr);
@@ -13,18 +27,7 @@ int main() {
     while (n--) {
         int x;
         cin >> x;
-        if (!x) {
-            if (pq.empty()){
-                cout << "0\n";
-            }
-            else {
-                cout << pq.top().second << "\n";
-                pq.pop();
-            }
-        }
-        else {
-            pq.push(pii(abs(x), x));
-        }
+        minHeap(x);
     }
     return 0;
 }
