@@ -1,11 +1,7 @@
 #include <iostream>
 using namespace std;
-
-int main() {
-    cin.tie(nullptr);
-    ios_base::sync_with_stdio(0);
-    int n, answer = -1;
-    cin >> n;
+int countMinimumSugarBag(int n) {
+    int answer = -1;
     if (n < 5) {
         answer = n == 3 ? 1 : -1;
     }
@@ -23,6 +19,15 @@ int main() {
             quotient++; 
         }
     }
+    return answer;
+}
+
+int main() {
+    cin.tie(nullptr);
+    ios_base::sync_with_stdio(0);
+    int n, answer;
+    cin >> n;
+    answer = countMinimumSugarBag(n);
     cout << answer << "\n";
     return 0;
 }
