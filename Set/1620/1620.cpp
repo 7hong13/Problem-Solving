@@ -5,24 +5,20 @@ using namespace std;
 typedef pair<string, int> monInfo;
 string monNames[100002];
 monInfo totalInfo[100002];
-
-int main()
-{
-    cin.tie(nullptr);
-    ios_base::sync_with_stdio(0);
-    int n, m;
-    cin >> n >> m;
-    for (int idx = 0; idx < n; idx++)
-    {
+void makePocketmonList(int n) {
+    for (int idx = 0; idx < n; idx++) {
         string name;
         cin >> name;
+        //for index input
         monNames[idx] = name;
         monInfo mon;
         mon.first = name;
         mon.second = idx;
+        //for pocketmon name input
         totalInfo[idx] = mon;
     }
-    sort(totalInfo, totalInfo + n);
+}
+void findPocketmon(int m, int n) {
     while (m--) {
         string question;
         cin >> question;
@@ -47,5 +43,16 @@ int main()
             }
         }
     }
+}
+
+int main() {
+    cin.tie(nullptr);
+    ios_base::sync_with_stdio(0);
+    int n, m;
+    cin >> n >> m;
+    makePocketmonList(n);
+    //For binary search
+    sort(totalInfo, totalInfo + n);
+    findPocketmon(m, n);
     return 0;
 }
