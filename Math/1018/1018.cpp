@@ -1,17 +1,8 @@
 #include <iostream>
 using namespace std;
 char chessBoard[51][51];
-
-int main() {
-    cin.tie(nullptr);
-    ios_base::sync_with_stdio(0);
-    int m, n;
-    cin >> n >> m;
-    for (int row = 0; row < n; row++) {
-        for (int col = 0; col < m; col++) {
-            cin >> chessBoard[row][col];
-        }
-    }
+int n, m;
+int countMinimumColoring() {
     int min = 10000;
     //맨위 맨왼쪽 흰색
     for (int row = 0; row <= n - 8; row++) {
@@ -38,6 +29,19 @@ int main() {
             min = min < cnt ? min : cnt;
         }
     }
-    cout << min << "\n";
+    return min;
+}
+
+int main() {
+    cin.tie(nullptr);
+    ios_base::sync_with_stdio(0);
+    cin >> n >> m;
+    for (int row = 0; row < n; row++) {
+        for (int col = 0; col < m; col++) {
+            cin >> chessBoard[row][col];
+        }
+    }
+    int minimumCount = countMinimumColoring();
+    cout << minimumCount << "\n";
     return 0;
 }
