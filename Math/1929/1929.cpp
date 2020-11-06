@@ -3,13 +3,8 @@
 using namespace std;
 #define MAX 1000000
 bool numbers[MAX];
-
-int main() {
-    cin.tie(nullptr);
-    ios_base::sync_with_stdio(0);
-    int m, n;
-    cin >> m >> n;
-    memset(numbers, 0, sizeof(numbers));
+int m, n;
+void findPrimeNumber() {
     for (int idx = 2; idx * idx <= MAX && idx <= n; idx++) {
 		if (!numbers[idx]) {
 			for (int sieve = idx * idx; sieve <= MAX && sieve <= n; sieve += idx)
@@ -21,5 +16,13 @@ int main() {
 		if (!numbers[num]) {
             cout << num << "\n";
         }
+}
+
+int main() {
+    cin.tie(nullptr);
+    ios_base::sync_with_stdio(0);
+    cin >> m >> n;
+    memset(numbers, 0, sizeof(numbers));
+    findPrimeNumber();
     return 0;
 }
