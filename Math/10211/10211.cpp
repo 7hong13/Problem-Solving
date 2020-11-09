@@ -1,6 +1,18 @@
 #include <iostream>
 using namespace std;
 int arr[1001];
+int n;
+void findMaximumSubarray() {
+    int max = -1001, sum = 0;
+    for (int idx = 0; idx < n; idx++){
+        sum = 0;
+        for (int start = idx; start < n; start++) {
+            sum += arr[start];
+            if (max < sum) max = sum;
+        }
+    }
+    cout << max << "\n";
+}
 
 int main() {
     cin.tie(nullptr);
@@ -8,22 +20,11 @@ int main() {
     int t;
     cin >> t;
     while (t--) {
-        int n;
         cin >> n;
-        int max = -1001, sum = 0;
         for (int idx = 0; idx < n; idx++) {
-            int x;
-            cin >> x;
-            arr[idx] = x;
+            cin >> arr[idx];
         }
-        for (int idx = 0; idx < n; idx++){
-            sum = 0;
-            for (int start = idx; start < n; start++) {
-                sum += arr[start];
-                if (max < sum) max = sum;
-            }
-        }
-        cout << max << "\n";
+        findMaximumSubarray();
     }
     return 0;
 }
