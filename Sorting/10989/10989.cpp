@@ -7,13 +7,8 @@
 #include <iostream>
 using namespace std;
 int arrMarkingIndex[10001] = { 0, };
-
-int main() {
-    cin.tie(nullptr);
-    ios_base::sync_with_stdio(false);
-    
-    int n;
-    cin >> n;
+int n;
+void sortAscendingOrder() {
     for (int idx = 0; idx < n; idx++) {
         int number;
         cin >> number;
@@ -25,5 +20,12 @@ int main() {
             cout << idx << "\n";
         }
     }
+}
+
+int main() {
+    cin.tie(nullptr);
+    ios_base::sync_with_stdio(false);
+    cin >> n;
+    sortAscendingOrder();
     return 0;
 }
