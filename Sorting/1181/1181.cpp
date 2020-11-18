@@ -7,12 +7,8 @@ bool compare(string word1, string word2) {
     return word1.length() < word2.length();
 }
 string arrForSorting[20001];
-
-int main() {
-    cin.tie(nullptr);
-    ios_base::sync_with_stdio(false);
-    int n;
-    cin >> n;
+int n;
+void sortWords() {
     for (int idx = 0; idx < n; idx++) {
         cin >> arrForSorting[idx];
     }
@@ -22,5 +18,12 @@ int main() {
          if (arrForSorting[idx-1] == arrForSorting[idx]) continue;
         cout << arrForSorting[idx] << "\n";
     }
+}
+
+int main() {
+    cin.tie(nullptr);
+    ios_base::sync_with_stdio(false);
+    cin >> n;
+    sortWords();
     return 0;
 }
