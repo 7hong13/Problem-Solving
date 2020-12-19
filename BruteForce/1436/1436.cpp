@@ -24,6 +24,7 @@ void printTitle() {
         }
     }
 }
+
 int main() {
     init();
     cin >> N;
