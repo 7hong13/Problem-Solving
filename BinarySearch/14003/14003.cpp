@@ -14,10 +14,6 @@ void init() {
     cout.tie(nullptr);
     ios_base::sync_with_stdio(0);
 }
-// 10 20 10 30 20 50
-// 10 20 30 50
-// 0 1 0 2 1 3
-// 10 20 10 30 20 50
 
 void findLis() {
     lis.push_back(-9999999999);
