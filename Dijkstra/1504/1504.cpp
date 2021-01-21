@@ -23,7 +23,6 @@ int dijstra(int start, int end) {
     while (!pq.empty()) {
         int minCost = pq.top().first;
         int u = pq.top().second;
-
         pq.pop();
         for (pii v : graph[u]) {
             if (dist[v.first] < minCost) continue;
