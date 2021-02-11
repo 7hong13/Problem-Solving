@@ -15,7 +15,7 @@ bool isPrimeNum(int n) {
     for (int idx = 2; idx <= n; idx++) {
         if (!checked[idx]) {
             for (int subIdx = idx * idx; subIdx <= n; subIdx += idx) {
-                checked[subIdx] = true;
+                if (!checked[subIdx]) checked[subIdx] = true;
             }
         }
     }
