@@ -17,7 +17,6 @@ void findNumOfCards() {
         cin >> num;
         if (!binary_search(cards, cards + N, num)) cout << "0 ";
         else {
-            int cnt = 1;
             auto currIter = lower_bound(cards, cards + N, num);
             auto nextIter = upper_bound(cards, cards + N, num);
             cout << nextIter - currIter << ' ';
