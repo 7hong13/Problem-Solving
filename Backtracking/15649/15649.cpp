@@ -1,9 +1,8 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 int N, M;
-bool arr[9];
-vector<int> v;
+int arr[9]; //idx starts from 1
+bool visited[9];
 void init() {
     cin.tie(nullptr);
     cout.tie(nullptr);
@@ -12,30 +11,25 @@ void init() {
 
 void seq(int cnt) {
 	if (cnt == M) {
-		for (int i = 0; i < v.size(); i++)
-			cout << v[i] << " ";
+		for (int idx = 0; idx < cnt; idx++) {
+			cout << arr[idx] << ' ';
+		}
 		cout << "\n";
 		return;
 	}
-	for (int j = 1; j <= N; j++) {
-		if (arr[j]) continue;
-		arr[j] = true;
-		v.push_back(j);
-		seq(cnt + 1);
-		v.pop_back();
-		arr[j] = false;
+	for (int idx = 1; idx <= N; idx++) {
+		if (!visited[idx]) {
+			visited[idx] = true;
+			arr[cnt] = idx;
+			seq(cnt + 1);
+			visited[idx] = false;
+		}
 	}
 }
 
 int main() {
     init();
     cin >> N >> M;
-    for (int idx = 1; idx <= N; idx++) {
-		arr[idx] = true;
-		v.push_back(idx);
-		seq(1);
-		arr[idx] = false;
-		v.pop_back();
-	}
+	seq(0);
     return 0;
 }
