@@ -3,7 +3,7 @@
 #include <vector>
 using namespace std;
 #define MAX 500
-#define INF 9999999
+#define INF 999999999
 typedef pair<int, int> pii; //destination, cost
 int TC, N, M, W;
 int dist[MAX + 1];
@@ -15,14 +15,14 @@ void init() {
 
 bool canReverseTime(vector<pii> graph[]) {
     dist[1] = 0;
-    for (int check = 0; check < N - 1; check++) {
+    for (int check = 1; check <= N - 1; check++) {
         for (int u = 1; u <= N; u++) {
-            if (dist[u] == INF) continue;
             for (pii v : graph[u]) {
                 dist[v.first] = min(dist[v.first], dist[u] + v.second);
             }
         }
     }
+
     bool hasMinusCycle = false;
     for (int u = 1; u <= N; u++) {
         for (pii v : graph[u]) {
