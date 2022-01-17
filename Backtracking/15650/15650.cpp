@@ -17,20 +17,17 @@ void dfs(int start, int remaining) {
         cout << "\n";
         return;
     }
-    for (int num = start + 1; num <= N; num++) {
+    for (int num = start; num <= N; num++) {
         visited[num] = true;
-        dfs(num, remaining - 1);
+        dfs(num + 1, remaining - 1);
         visited[num] = false;
     }
 }
 
 int main() {
     init();
-    cin >> N >> M;
-    for (int start = 1; start <= N; start++) {
-        visited[start] = true;
-        dfs(start, M - 1);
-        visited[start] = false;
-    }
+    cin >> N >> M;    
+    
+    dfs(1, M);
     return 0;
 }
